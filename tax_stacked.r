@@ -12,8 +12,9 @@ otu_total <- read_excel("~/all_taxa_file.xlsx", sheet = 1) %>%
   distinct() %>%
   arrange(pick(2))
 
-# get all samples
-s_all <-
+# get all samples without ntc
+s_all <- nrow(metadata) - 1
+
 # pivot the wide table to a long format
 long_data <- rel_abund %>%
   rename(Taxon = 1) %>%
