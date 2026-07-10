@@ -27,7 +27,7 @@ cont_df <- isContaminant(seqtab = meta_mx, conc = conc_v, neg = neg_v, method = 
 # original organism names for later reference
 cont_df$Orgs <- meta_tax_df[, 1]
 
-# filter the contaminans
+# filter the contaminants
 cont_tbl <- cont_df[which(cont_df$contaminant), ]
 meta_tax_clean <- meta_tax_df[!(rownames(meta_tax_df) %in% rownames(cont_tbl)), ]
 
