@@ -28,6 +28,9 @@ columns_to_keep <- c("Sample_Name", clean_taxa_names)
 taxn_clean_df <- taxn_df[, columns_to_keep]
 tax_clean_df <- taxn_clean_df[! taxn_clean_df$Sample_Name %in% "NTC"]
 
+# create the directories
+dir.create(org)
+
 # export cleaned tax with and without NTC
 write_tsv(taxn_clean_df, file.path(org, "taxa_wNTC.tsv"))
 write_tsv(tax_clean_df, file.path(org, "taxa_woNTC.tsv"))
