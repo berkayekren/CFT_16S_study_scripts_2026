@@ -4,6 +4,32 @@ Analysis scripts for the article **"Microbiota Profiling of Cerebrospinal Fluid 
 
 The scripts identify putative contaminants with [decontam](https://github.com/benjjneb/decontam) and test how sensitive the genus-level composition is to the filtering choice and to sequencing depth.
 
+
+## NCBI Uploads & IDs
+
+16 of 26 samples and NTC were uploaded to the NCBI SRA Database. The given BioProject ID is `PRJNA1491059`. The SRA IDs assigned are given below.
+
+| ID | SRA Number |
+| BOS12	| SRR39498336 |
+| BOS13	| SRR39498337 |
+| BOS14	| SRR39498338 |
+| BOS15	| SRR39498339 |
+| BOS16	| SRR39498340 |
+| BOS17	| SRR39498341 |
+| BOS18	| SRR39498328 |
+| BOS19	| SRR39498329 |
+| BOS20	| SRR39498330 |
+| BOS21	| SRR39498331 |
+| BOS22	| SRR39498332 |
+| BOS23	| SRR39498333 |
+| BOS24	| SRR39498334 |
+| BOS25	| SRR39498335 |
+| BOS26	| SRR39498342 |
+| NTC	| SRR39498343 |
+
+The samples BOS01 to 11 will be uploaded after recovery.
+
+
 ## Scenarios
 
 All scenarios are run on genus-level raw read counts of the study samples plus one no-template control (NTC).
