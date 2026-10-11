@@ -10,6 +10,7 @@ The scripts identify putative contaminants with [decontam](https://github.com/be
 16 of 26 samples and NTC were uploaded to the NCBI SRA Database. The given BioProject ID is `PRJNA1491059`. The SRA IDs assigned are given below.
 
 | ID | SRA Number |
+|---|---|
 | BOS12	| SRR39498336 |
 | BOS13	| SRR39498337 |
 | BOS14	| SRR39498338 |
