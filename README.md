@@ -43,18 +43,18 @@ Rscript depth_groups_clin_discovery.r
 
 decontam is run on the **genus** sheet only.
 
-## Output (`Genus/`)
-
-- `<scenario>/taxa_wNTC.tsv`, `taxa_woNTC.tsv`: count tables after filtering, with and without the NTC row
-- `<scenario>/decontam_pvalues.tsv`: decontam p-values (not written for `strict_NTC`)
-- `<scenario>/Taxonomic_Composition.png`: stacked bar chart
-- `decontam_sensitivity_summary.tsv`: genera and reads removed per scenario
-- `decontam_pvalues_all.tsv`: combined and frequency-only p-values per genus, with an NTC flag
-- `read_depth.tsv`, `per_sample_pct_removed.tsv`, `fraction_reads_retained.tsv`: read depth and reads retained per sample
-- `depth_groups.tsv`, `dominant_genus_stability.tsv`, `S6_per_sample.tsv`: depth-group and stability results
-- `sequencing_discovery.tsv`: read counts of selected genera per sample
-- `Supplementary_Figure_S1.pdf`: all scenarios in one figure
+## Output (`./` - project root)
 - `sessionInfo.txt`: R and package versions
+- `Genus/<scenario>/taxa_wNTC.tsv`, `taxa_woNTC.tsv`: count tables after filtering, with and without the NTC row
+- `Genus/<scenario>/decontam_pvalues.tsv`: decontam p-values (not written for `strict_NTC`)
+- `Genus/<scenario>/Taxonomic_Composition.png`: stacked bar chart
+- `Genus/decontam_sensitivity_summary.tsv`: genera and reads removed per scenario
+- `Genus/decontam_pvalues_all.tsv`: combined and frequency-only p-values per genus, with an NTC flag
+- `Genus/read_depth.tsv`, `per_sample_pct_removed.tsv`, `fraction_reads_retained.tsv`: read depth and reads retained per sample
+- `Genus/depth_groups.tsv`, `dominant_genus_stability.tsv`, `S6_per_sample.tsv`: depth-group and stability results
+- `Genus/sequencing_discovery.tsv`: read counts of selected genera per sample
+- `Genus/Supplementary_Figure_S1.pdf`: all scenarios in one figure
+
 
 ## Requirements
 
