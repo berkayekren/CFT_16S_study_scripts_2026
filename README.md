@@ -1,9 +1,71 @@
 # CFT 16S Study Scripts (2026)
 
-This repository contains analysis scripts for **cerebrospinal fluid (CFT)** microbiota profiling using **16S rRNA gene sequencing (ONT platform)**.
+Analysis scripts for the article **"Microbiota Profiling of Cerebrospinal Fluid in Bacterial Meningitis Using 16S rRNA Gene Sequencing"** (16S rRNA gene sequencing, ONT platform).
 
-## Study
-- **Article title:** *Microbiota Profiling of Cerebrospinal Fluid in Bacterial Meningitis Using 16S rRNA Gene Sequencing*
-- **Decontamination:** tax_decont.r
-- **TSS Calculation:** tax_stats.r
-- **Stacked bar chart:** tax_stacked.r
+The scripts identify putative contaminants with [decontam](https://github.com/benjjneb/decontam) and test how sensitive the genus-level composition is to the filtering choice and to sequencing depth.
+
+## Scenarios
+
+All scenarios are run on genus-level raw read counts of the study samples plus one no-template control (NTC).
+
+| Scenario | Method |
+|---|---|
+| `thr_0` | No filtering |
+| `thr_0.1` | decontam, `combined` method, threshold 0.1 (primary, decontam default) |
+| `thr_0.25`, `thr_0.5` | decontam, `combined` method, more permissive thresholds |
+| `freq_0.1`, `freq_0.25`, `freq_0.5` | decontam, `frequency` method alone (study samples only, NTC not used) |
+| `strict_NTC` | Rule-based: removes every genus detected in the NTC (no decontam) |
+
+Relative abundances are calculated by total-sum scaling of the reads retained in each scenario.
+
+## Scripts
+
+Run from the repository root, in this order:
+
+| Order | File | Purpose |
+|---|---|---|
+| 1 | `tax_decontam_w_sensitivity.r` | Runs decontam and the strict scenario; writes per-scenario count tables, p-values, read depth and the scenario summary |
+| (sourced) | `common.r` | Shared setup: libraries, scenario names, loading of count tables and total-sum scaling |
+| 2 | `tax_stacked_w_sensitivity.r` | Stacked bar charts per scenario and the combined Supplementary Figure S1 |
+| 3 | `depth_groups_clin_discovery.r` | Depth groups (samples below or above the NTC read count), dominant-genus comparison across scenarios, Bray-Curtis, resampling stability, per-sample table |
+
+```bash
+Rscript tax_decontam_w_sensitivity.r
+Rscript tax_stacked_w_sensitivity.r
+Rscript depth_groups_clin_discovery.r
+```
+
+## Input files
+
+- `SUPPLEMENTARY_TABLE_S1.xlsx`: raw read counts per sample (sheet 1 phylum, sheet 2 genus)
+- `SUPPLEMENTARY_TABLE_S2.xlsx`: raw read counts of the NTC (same sheet layout)
+- `metadata.tsv`: columns `Samples`, `Concentration` (pre-sequencing DNA concentration) and `NTC` (TRUE for the control)
+
+decontam is run on the **genus** sheet only.
+
+## Output (`Genus/`)
+
+- `<scenario>/taxa_wNTC.tsv`, `taxa_woNTC.tsv`: count tables after filtering, with and without the NTC row
+- `<scenario>/decontam_pvalues.tsv`: decontam p-values (not written for `strict_NTC`)
+- `<scenario>/Taxonomic_Composition.png`: stacked bar chart
+- `decontam_sensitivity_summary.tsv`: genera and reads removed per scenario
+- `decontam_pvalues_all.tsv`: combined and frequency-only p-values per genus, with an NTC flag
+- `read_depth.tsv`, `per_sample_pct_removed.tsv`, `fraction_reads_retained.tsv`: read depth and reads retained per sample
+- `depth_groups.tsv`, `dominant_genus_stability.tsv`, `S6_per_sample.tsv`: depth-group and stability results
+- `sequencing_discovery.tsv`: read counts of selected genera per sample
+- `Supplementary_Figure_S1.pdf`: all scenarios in one figure
+- `sessionInfo.txt`: R and package versions
+
+## Requirements
+
+R with `tidyverse`, `readxl`, `decontam` (v1.24.0), `RColorBrewer` and `patchwork`. See `Genus/sessionInfo.txt` for the exact versions used.
+
+## Notes
+
+- Only one NTC was available, and it was sequenced with a single sequencing batch. The prevalence test of decontam therefore has very limited resolution, which is why the additional scenarios are provided.
+- Samples with fewer reads than the NTC (747 reads) are marked in red in the figures and should be interpreted as low-confidence.
+- `isContaminant()` is deterministic. The only random step is the resampling in `depth_groups_clin_discovery.r` (`set.seed(1)`).
+
+## Citation
+
+Article: "Microbiota Profiling of Cerebrospinal Fluid in Bacterial Meningitis Using Full-Length 16S rRNA Gene Amplicon Sequencing"
