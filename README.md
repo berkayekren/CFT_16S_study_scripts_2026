@@ -85,7 +85,7 @@ decontam is run on the **genus** sheet only.
 
 ## Requirements
 
-R with `tidyverse`, `readxl`, `decontam` (v1.24.0), `RColorBrewer` and `patchwork`. See `Genus/sessionInfo.txt` for the exact versions used.
+R with `tidyverse`, `readxl`, `decontam` (v1.24.0), `RColorBrewer` and `patchwork`.
 
 ## Notes
 
