@@ -84,6 +84,8 @@ decontam is run on the **genus** sheet only.
 
 ## Final Files
 
+- `FIGURE_1a.png`: figure 1a in the paper
+- `FIGURE_1b.png`: figure 1b in the paper
 - `SUPPLEMENTARY_TABLE_S1.xlsx`: raw read counts per sample (sheet 1 phylum, sheet 2 genus)
 - `SUPPLEMENTARY_TABLE_S2.xlsx`: raw read counts of the NTC (same sheet layout)
 - `SUPPLEMENTARY_TABLE_S3.xlsx`: count values retained after different decontam thresholds
