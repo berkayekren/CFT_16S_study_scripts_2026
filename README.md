@@ -107,4 +107,4 @@ R with `tidyverse`, `readxl`, `decontam` (v1.24.0), `RColorBrewer` and `patchwor
 
 ## Citation
 
-Article: "Microbiota Profiling of Cerebrospinal Fluid in Bacterial Meningitis Using Full-Length 16S rRNA Gene Amplicon Sequencing"
+Article: "Full-Length 16S rRNA Gene Nanopore Sequencing of Cerebrospinal Fluid in Suspected Bacterial Meningitis: Agreement with Reference Methods and Characterization of Background Signal"
