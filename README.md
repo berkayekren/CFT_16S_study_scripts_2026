@@ -1,6 +1,6 @@
 # CFT 16S Study Scripts (2026)
 
-Analysis scripts for the article **"Microbiota Profiling of Cerebrospinal Fluid in Bacterial Meningitis Using 16S rRNA Gene Sequencing"** (16S rRNA gene sequencing, ONT platform).
+Analysis scripts for the article **"Full-Length 16S rRNA Gene Nanopore Sequencing of Cerebrospinal Fluid in Suspected Bacterial Meningitis: Agreement with Reference Methods and Characterization of Background Signal"** (16S rRNA gene sequencing, ONT platform).
 
 The scripts identify putative contaminants with [decontam](https://github.com/benjjneb/decontam) and test how sensitive the genus-level composition is to the filtering choice and to sequencing depth.
 
