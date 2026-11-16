@@ -82,6 +82,16 @@ decontam is run on the **genus** sheet only.
 - `Genus/sequencing_discovery.tsv`: read counts of selected genera per sample
 - `Genus/Supplementary_Figure_S1.pdf`: all scenarios in one figure
 
+## Final Files
+
+- `SUPPLEMENTARY_TABLE_S1.xlsx`: raw read counts per sample (sheet 1 phylum, sheet 2 genus)
+- `SUPPLEMENTARY_TABLE_S2.xlsx`: raw read counts of the NTC (same sheet layout)
+- `SUPPLEMENTARY_TABLE_S3.xlsx`: count values retained after different decontam thresholds
+- `SUPPLEMENTARY_TABLE_S4.xlsx`: counts and TSS percentages before and after decontam ran
+- `SUPPLEMENTARY_TABLE_S5.xlsx`: decontam statistics and results of the `IsContaminant()` function for each threshold try
+- `SUPPLEMENTARY_TABLE_S6.xlsx`: read count comparisons with NTC and samples with top present taxon in each sample after different decontam thresholds
+- `SUPPLEMENTARY_FIGURE_S1.pdf`: stacked barcharts with read counts after different decontamination threshold applications
+- `metadata.tsv`: columns `Samples`, `Concentration` (pre-sequencing DNA concentration) and `NTC` (TRUE for the control)
 
 ## Requirements
 
